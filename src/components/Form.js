@@ -10,6 +10,7 @@ const Form = ({setLyric}) => {
     })
     const [error, setError] = React.useState(false);
 
+
     const handleOnChange = (e) => {
         setSearch({
             ...search,
@@ -20,14 +21,14 @@ const Form = ({setLyric}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("yapo");
 
         if(search.artist.trim() === '' || search.song.trim() === '') {
             setError(true);
             return;
         }
         setError(false);
-
-        
+        setLyric(search);
     }
 
     return (
@@ -60,11 +61,9 @@ const Form = ({setLyric}) => {
                                         />
                                 </div>
                             </div>
-                            <button 
+                            <input 
                                 type="submit" 
-                                className="btn btn-primary float-right mt-5">
-                                    Buscar
-                            </button>
+                                className="btn btn-primary float-right mt-5" value="Buscar" />
                         </fieldset>
                     </form>
                 </div>
